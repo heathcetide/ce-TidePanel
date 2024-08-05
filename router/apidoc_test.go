@@ -2,7 +2,8 @@ package router
 
 import (
 	"fmt"
-	"main/config"
+	"github.com/heathcetide/ce-TidePanel/config"
+
 	"os"
 	"testing"
 )

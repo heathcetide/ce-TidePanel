@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/heathcetide/ce-TidePanel/config"
 	"github.com/jinzhu/gorm"
-	"main/config"
 	"strings"
 )
 

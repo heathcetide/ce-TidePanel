@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/heathcetide/ce-TidePanel/config"
 	"github.com/jinzhu/gorm"
 	"github.com/spf13/viper"
-	"main/config"
 )
 
 func ServerStart() {
