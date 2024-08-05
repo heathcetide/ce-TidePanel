@@ -1,4 +1,5 @@
-module main
+module  github.com/heathcetide/ce-TidePanel
+     
 
 go 1.22.4
 
