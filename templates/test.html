@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/list.css">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #00b0ff, #0091ea);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            margin-top: 7vh;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 80%;
+            min-height: 80vh;
+            overflow-y: auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card h1 {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card input[type="text"],
+        .card input[type="password"] {
+            background: #f2f2f2;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card input[type="text"]:focus,
+        .card input[type="password"]:focus {
+            background: #ffffff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        .card input[type="submit"],
+        .back {
+            display: block;
+            background: #0091ea;
+            border: none;
+            border-radius: 25px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .card input[type="submit"]:hover,
+        .back:hover {
+            background: #00b0ff;
+            color: white;
+        }
+
+        .otherlogin {
+            color: #777777;
+            display: block;
+            padding-top: 30px;
+            margin-bottom: 2vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            zoom: 80%;
+        }
+
+        .otherlogin::after,
+        .otherlogin::before {
+            content: "";
+            flex: 1;
+            margin: 0 3vmin 0 3vmin;
+            border-bottom: 1px solid rgb(220, 220, 220);
+        }
+
+        .othercontent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .othercontent a {
+            font-size: 110%;
+            color: inherit;
+            text-decoration: none;
+            color: #4f4f4f;
+            cursor: pointer;
+            border-radius: 0.5vmin;
+            padding: 1vmin 2.5vmin;
+            border: #ddd solid 1px;
+            zoom: 0.9;
+        }
+
+        .othercontent a + a {
+            margin-left: 1vmin;
+        }
+
+        .othercontent a:hover {
+            transform: scale(1.05);
+            border-color: #3D84FF;
+            box-shadow: rgb(94 150 255 / 50%) 0px 0.5vmin 1.5vmin, rgb(255 255 255 / 80%) 0px -0.5vmin 1.5vmin;
+        }
+
+        .wjmm {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 2vmin;
+        }
+
+        .wjmm span {
+            cursor: pointer;
+            display: inline-block;
+            color: rgb(61, 132, 255);
+            text-decoration: underline;
+        }
+
+        .wjmm span:hover {
+            color: coral;
+        }
+
+        .wjmm span + span {
+            padding-left: 3vmin;
+            margin-left: 3vmin;
+            position: relative;
+        }
+
+        .wjmm span + span::before {
+            position: absolute;
+            content: "";
+            height: 60%;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-40%);
+            border-left: 1px solid rgb(204, 204, 204);
+        }
+
+        #registerCard {
+            display: none;
+        }
+
+        .line {
+            cursor: pointer;
+            height: 10px;
+            width: 258px;
+            border: #e7f8ff 1px solid;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: #e7f8ff;
+            color: #444444;
+            font-family: "Open Sans", "Roboto", "Arial", serif;
+            font-size: 19px
+        }
+
+        #registerCard img {
+            float: left;
+            position: relative;
+            bottom: 20px;
+            right: 20px;
+            width: 30px;
+            cursor: pointer;
+        }
+    </style>
+    <link rel='stylesheet' href='../static/css/index.css?id=3' type='text/css'/>
+</head>
+
+<body>
+<div class="card" id="loginCard">
+
+    <div id="app">
+        <div style="max-height: 80vh; width: 310px">
+            <div v-bind:class="left" :style="[{height:divHei+'px'}]">
+                <div style=" display: flex; position: relative ">
+                    <div style="margin-left: 20px">
+                        <div style="color:black;font-family: 微软雅黑; font-size: 24px">Cetide Panel</div>
+                        <div style="color: #444444;font-family: 微软雅黑; font-size: 14px">Query MySQL
+                        </div>
+                        <div style="position: absolute;right: 20px; margin-top: -44px">
+                            <img src="../static/img/TopSvg.png" alt="top-img" width="43">
+                        </div>
+                    </div>
+                </div>
+                <div style="overflow-y: auto">
+                    <div class="addct" :style="[{height:lm+'px'}]" style="overflow: auto;" onclick="addInitial() ">
+                        <div class="li onli" id="1">
+                            <div class="xin">欢迎使用</div>
+                            <div style="display: flex; justify-content: space-between">
+                                <div class="yitiao">开始对话吧</div>
+                                <div class="time"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ range . }}
+
+                    <div class="line" data-id="{{ . }}">
+                        <button class="custom-button" data-id="{{ . }}" onclick="handleClickTable(this)">table+</button>
+                        <span data-id="{{ . }}" onclick="handleClickInfo(this)">{{ . }}</span>
+                    </div>
+                    {{ end }}
+                </div>
+
+            </div>
+        </div>
+        <div style="overflow-y: auto; max-height: 80vh; width: 110vh;overflow-x: auto;">
+            <div v-bind:class="right" :style="[{height:divHei+'px'}]" style="margin-left: 40px; ">
+                <div id="dataContainer"></div>
+                <!-- 加载指示器 -->
+                <div class="loading-indicator" style="margin: 20vh 40vh; ">
+                    <div class="loading">
+                        <!-- --i是CSS的自定义属性，通过var函数可以调用 -->
+                        <span style="--i:1;"></span>
+                        <span style="--i:2;"></span>
+                        <span style="--i:3;"></span>
+                        <span style="--i:4;"></span>
+                        <span style="--i:5;"></span>
+                        <span style="--i:6;"></span>
+                        <span style="--i:7;"></span>
+                    </div>
+                    <!-- 接下来我们来自定义一个滤镜 -->
+                    <svg>
+                        <!-- <filter>标签是用来定义SVG滤镜，通过id进行调用使用 -->
+                        <filter id="gooey">
+                            <!-- <feGaussianBlur>元素是用于创建模糊滤镜 -->
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10"></feGaussianBlur>
+                            <!-- <feColorMatrix>是过滤中的一种类型，使用矩阵来影响颜色的每个通道(基于RGBA)，可以将其想象成Photoshop中的通道编辑一样 -->
+                            <feColorMatrix values="
+                1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 20 -10
+            "></feColorMatrix>
+                        </filter>
+                        <!-- 到这里自定义滤镜就写好了，接下来我们对它进行调用 -->
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div v-bind:class="right" :style="[{height:divHei+'px'}]" style="position: absolute; margin-left: 80vh">
+            <div id="data"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function updateTime(element) {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份从 0 开始
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        const formattedTime = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+        element.textContent = formattedTime;
+    }
+
+    function addInitial() {
+        document.querySelector('.loading-indicator').style.display = 'none';
+        const timeElement = document.querySelector('.time');
+        updateTime(timeElement);
+        var dataContainer = document.getElementById('dataContainer');
+        dataContainer.innerHTML =
+            `
+            <div class="message">
+                <div class="messagetop">
+                    <div class="messagetoptitle">欢迎使用CetidePanel</div>
+                </div>
+                <div class="messageleftimg" style="margin-bottom: 15px;">
+                    <img src="../static/img/Logo.jpg" alt="panel助手" width="40px" style="border-radius: 50%">
+                </div>
+                <div class="messageleftct">
+                    你好，我是Cetide,准备好连接信息便可以开始使用啦
+                </div>
+            </div>
+`
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function handleClickTable(element) {
+        var id = element.getAttribute('data-id');
+        const container = document.getElementById('dataContainer');
+        container.innerHTML = ''; // 清空
+        // 显示加载指示器
+        document.querySelector('.loading-indicator').style.display = 'block';
+        await sleep(1000);
+        // 发送 AJAX 请求
+        fetch('/api/table/' + id, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.data)
+                displayTable(data.data)
+                document.querySelector('.loading-indicator').style.display = 'none';
+            })
+            .catch(error => {
+                document.querySelector('.loading-indicator').style.display = 'none';
+                console.error('Error:', error)
+            });
+    }
+
+    async function handleClickInfo(element) {
+        var id = element.getAttribute('data-id');
+        const container = document.getElementById('dataContainer');
+        container.innerHTML = ''; // 清空
+        // 显示加载指示器
+        document.querySelector('.loading-indicator').style.display = 'block';
+        await sleep(1000);
+        fetch('/api/data/' + id, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.loading-indicator').style.display = 'none';
+                console.log(data.data)
+                displayData(data.data)
+
+            })
+            .catch(error => {
+                document.querySelector('.loading-indicator').style.display = 'none';
+                console.error('Error:', error)
+            });
+    }
+
+    function displayData(data) {
+        // 获取元素
+        const container = document.getElementById('dataContainer');
+        container.innerHTML = ''; // 清空容器
+
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            // 如果数据为空或者不是一个数组，则显示提示信息和图片
+            const noDataMessage = document.createElement('p');
+            const noDataImage = document.createElement('img');
+            noDataImage.src = '../static/img/no-data.png'; // 替换为实际图片路径
+            noDataImage.alt = 'No Data Image';
+            noDataImage.classList.add('no-data-image');
+            noDataMessage.textContent = 'There is no data here.....';
+            noDataMessage.classList.add('no-data-message');
+            container.appendChild(noDataMessage);
+            container.appendChild(noDataImage);
+        } else {
+            // 创建表格
+            const table = document.createElement('table');
+            table.classList.add('data-table');
+
+            // 创建表头
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            Object.keys(data[0]).forEach(key => {
+                const th = document.createElement('th');
+                th.textContent = key;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // 创建表体
+            const tbody = document.createElement('tbody');
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                    const td = document.createElement('td');
+                    td.textContent = value === null ? 'NULL' : truncateText(value, 40);
+                    row.appendChild(td);
+                });
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+            // 将表格添加到容器
+            container.appendChild(table);
+        }
+    }
+
+    function displayTable(data) {
+        // 获取元素
+        const container = document.getElementById('dataContainer');
+        container.innerHTML = ''; // 清空容器
+
+        // 遍历数据并创建HTML元素
+        data.forEach(field => {
+            const fieldDiv = document.createElement('div');
+            fieldDiv.className = 'field';
+
+            const fieldName = document.createElement('span');
+            fieldName.className = 'field-name';
+            fieldName.textContent = `${field.Field}:`;
+
+            const fieldType = document.createElement('span');
+            fieldType.className = 'field-type';
+            fieldType.textContent = field.Type;
+
+            const fieldNull = document.createElement('span');
+            fieldNull.className = 'field-null';
+            fieldNull.textContent = field.Null;
+
+            const fieldKey = document.createElement('span');
+            fieldKey.className = 'field-key';
+            fieldKey.textContent = field.Key;
+
+            const fieldDefault = document.createElement('span');
+            fieldDefault.className = 'field-default';
+            fieldDefault.textContent = field.Default;
+
+            const fieldExtra = document.createElement('span');
+            fieldExtra.className = 'field-extra';
+            fieldExtra.textContent = field.Extra;
+
+            fieldDiv.appendChild(fieldName);
+            fieldDiv.appendChild(fieldType);
+            fieldDiv.appendChild(fieldNull);
+            fieldDiv.appendChild(fieldKey);
+            fieldDiv.appendChild(fieldDefault);
+            fieldDiv.appendChild(fieldExtra);
+
+            container.appendChild(fieldDiv);
+        });
+    }
+
+    // 截断文本
+    function truncateText(text, maxLength) {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        }
+        return text;
+    }
+
+    function register() {
+        document.getElementById("loginCard").style.display = "none";
+        document.getElementById("registerCard").style.display = "block";
+    }
+
+    function returnLogin() {
+        document.getElementById("loginCard").style.display = "block";
+        document.getElementById("registerCard").style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            var formData = {
+                userName: $("#username").val(),
+                password: $("#password").val()
+            };
+            $.ajax({
+                url: "/Man/manlogin",
+                type: "post",
+                data: formData,
+                success: function (data) {
+                    if (data.msg == "success") {
+                        window.location.href = "/shouye.html";
+                    } else {
+                        alert("登录失败，请重试！");
+                    }
+                },
+                error: function () {
+                    alert("请求失败！");
+                }
+            });
+            return false;
+        });
+    });
+
+    const scrollableDiv = document.querySelector('[style*="overflow-y: auto"]');
+
+    scrollableDiv.addEventListener('wheel', (event) => {
+        event.preventDefault(); // 阻止默认滚动行为
+        const delta = Math.sign(event.deltaY) * 50; // 每次滚动50像素
+        scrollableDiv.scrollTop += delta;
+    });
+
+</script>
+<script>
+    // 定义一个con绑定.container
+    const con = document.querySelector('.container');
+
+    // 定义两个函数开关（门）
+    let isIn = true;      // 鼠标进去的门，默认打开
+    let isOut = false;    // 鼠标出去的门，默认关闭
+
+    var span;           // 给未出生的元素取个名字span
+    // // 监听鼠标进去的事件
+    // con.addEventListener('mouseenter', (e) => {
+    //     // 如果进去的门是打开的，就可以执行这个函数
+    //     if (isIn) {
+    //         // 获取进入的鼠标位置
+    //         // 生成元素的位置=进入点距离窗口的距离-父盒子距离窗口的距离
+    //         let inX = e.clientX - e.target.offsetLeft;
+    //         let inY = e.clientY - e.target.offsetTop;
+    //
+    //         // 创建一个span元素，并且给它对应的出生坐标
+    //         let el = document.createElement('span');
+    //         el.style.left = inX + 'px';
+    //         el.style.top = inY + 'px';
+    //         // 添加到con对应的父元素，即container
+    //         con.appendChild(el);
+    //
+    //         $('.container span').removeClass('out');    // 移除出去的动画
+    //         $('.container span').addClass('in');        // 添加进入的动画
+    //         span = document.querySelector('.container span');
+    //         isIn = false;     // 关闭进来的门（不能使用进入的方法）
+    //         isOut = true;     // 打开出去的门（可以使用出去的方法）
+    //     }
+    // })
+    // // 监听鼠标出去的事件
+    // con.addEventListener('mouseleave', (e) => {
+    //     if (isOut) {
+    //         // 获取出去的鼠标位置
+    //         // 生成元素的位置=出去点距离窗口的距离-父盒子距离窗口的距离
+    //         let outX = e.clientX - e.target.offsetLeft;
+    //         let outY = e.clientY - e.target.offsetTop;
+    //
+    //         $('.container span').removeClass('in');     // 移除进入的动画
+    //         $('.container span').addClass('out');       // 添加出去的动画
+    //         // 添加出去的坐标
+    //         $('.out').css('left', outX + 'px');
+    //         $('.out').css('top', outY + 'px');
+    //
+    //         isOut = false;    // 关闭出去的门
+    //         // 当动画结束后再删除元素
+    //         setTimeout(() => {
+    //             con.removeChild(span);      // 删除元素
+    //             isIn = true;                  // 打开进入的门
+    //         }, 500);
+    //     }
+    // })
+</script>
+
+<!--<script src="../static/js/index.js"></script>-->
+<script>
+
+    !function () {
+
+        function n(n, e, t) {
+
+            return n.getAttribute(e) || t
+
+        }
+
+        function e(n) {
+
+            return document.getElementsByTagName(n)
+
+        }
+
+        function t() {
+
+            var t = e("script"),
+                o = t.length,
+                i = t[o - 1];
+
+            return {
+                l: o,
+                z: n(i, "zIndex", -1),
+                o: n(i, "opacity", .5),
+                c: n(i, "color", "0,0,0"),
+                n: n(i, "count", 99)
+            }
+
+        }
+
+        function o() {
+
+            a = m.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+
+                c = m.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+
+        }
+
+        function i() {
+
+            r.clearRect(0, 0, a, c);
+
+            var n, e, t, o, m, l;
+
+            s.forEach(function (i, x) {
+
+                for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 : 1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1, 1), e = x + 1; e < u.length; e++) n = u[e],
+
+                null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y,
+
+                    l = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o, i.y -= .03 * m),
+
+                    t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t / 2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y), r.lineTo(n.x, n.y), r.stroke()))
+
+            }),
+
+                x(i)
+
+        }
+
+        var a, c, u, m = document.createElement("canvas"),
+
+            d = t(),
+            l = "c_n" + d.l,
+            r = m.getContext("2d"),
+
+            x = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+
+                function (n) {
+
+                    window.setTimeout(n, 1e3 / 45)
+
+                },
+
+            w = Math.random,
+            y = {
+                x: null,
+                y: null,
+                max: 2e4
+            };
+        m.id = l, m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z + ";opacity:" + d.o, e("body")[0].appendChild(m), o(), window.onresize = o,
+
+            window.onmousemove = function (n) {
+
+                n = n || window.event, y.x = n.clientX, y.y = n.clientY
+
+            },
+
+            window.onmouseout = function () {
+
+                y.x = null, y.y = null
+
+            };
+
+        for (var s = [], f = 0; d.n > f; f++) {
+
+            var h = w() * a,
+                g = w() * c,
+                v = 2 * w() - 1,
+                p = 2 * w() - 1;
+            s.push({
+                x: h,
+                y: g,
+                xa: v,
+                ya: p,
+                max: 6e3
+            })
+
+        }
+
+        u = s.concat([y]),
+
+            setTimeout(function () {
+                i()
+            }, 100)
+
+    }();
+</script>
+
+</html>
