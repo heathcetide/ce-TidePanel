@@ -1,4 +1,4 @@
-package router
+package ce_TidePanel
 
 import (
 	"github.com/gin-gonic/gin"

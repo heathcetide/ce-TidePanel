@@ -1,7 +1,9 @@
 package main
 
-import "github.com/heathcetide/ce-TidePanel/router"
+import (
+	"github.com/heathcetide/ce-TidePanel"
+)
 
 func main() {
-	router.ServerStart()
+	ce_TidePanel.ServerStart()
 }

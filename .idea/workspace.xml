@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27db5a2e-321a-4f5f-b799-dcf4bc403f52" name="更改" comment="" />
+    <list default="true" id="27db5a2e-321a-4f5f-b799-dcf4bc403f52" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/apidoc.go" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/apidoc_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/apidoc_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/serves.go" beforeDir="false" afterPath="$PROJECT_DIR$/serves.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +28,7 @@
   </component>
   <component name="GOROOT" url="file://D:/GOFold" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/AppPonsive" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -49,9 +58,9 @@
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/项目实战/项目实战十一：开发看板/static/img&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Desktop/project/ce-TidePanel&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -65,19 +74,29 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Desktop\project\ce-TidePanel" />
       <recent name="F:\项目实战\项目实战十一：开发看板\static\img" />
       <recent name="F:\项目实战\项目实战十一：开发看板\templates" />
       <recent name="F:\项目实战\项目实战十一：开发看板\chatgpt" />
       <recent name="F:\项目实战\项目实战十一：开发看板" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Desktop\project\ce-TidePanel" />
       <recent name="F:\项目实战\项目实战十一：开发看板\static" />
       <recent name="F:\项目实战\项目实战十一：开发看板\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Go 构建.go build main.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="cetde_panel" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="项目实战十一：开发看板" />
+      <module name="cetde_panel" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <package value="main" />
@@ -86,7 +105,7 @@
       <method v="2" />
     </configuration>
     <configuration name="go build main/model" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="项目实战十一：开发看板" />
+      <module name="cetde_panel" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="main/model" />
@@ -95,7 +114,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestGetUsers in main/config (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="项目实战十一：开发看板" />
+      <module name="cetde_panel" />
       <working_directory value="$PROJECT_DIR$/config" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
@@ -106,8 +125,17 @@
       <pattern value="^\QTestGetUsers\E$" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="cetde_panel" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <configuration name="main/router 中的 TestGetTableData (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="项目实战十一：开发看板" />
+      <module name="cetde_panel" />
       <working_directory value="$PROJECT_DIR$/router" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
@@ -119,7 +147,7 @@
       <method v="2" />
     </configuration>
     <configuration name="main/router 中的 TestGetTableData" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="项目实战十一：开发看板" />
+      <module name="cetde_panel" />
       <working_directory value="$PROJECT_DIR$/router" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
